@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const sesTransport = require('nodemailer-ses-transport');
 
-const {emailToNotify, url, awsAccessKeyId, awsSecretAccessKey} = require('../config.js')
+const {emailToNotify, url, awsAccessKeyId, awsSecretAccessKey, senderEmail} = require('../config.js')
 
 module.exports = _ => {
   var transport = nodemailer.createTransport(sesTransport({
@@ -9,7 +9,7 @@ module.exports = _ => {
     secretAccessKey: awsSecretAccessKey
   }));
   const mailOptions = {
-    from: '"CSS Selector Catcher" <dreammer6@gmail.com>',
+    from: `"CSS Selector Catcher" <${senderEmail}>`,
     to: emailToNotify,
     subject: 'Required CSS selector has been found on the monitored page',
     html: `<a href="${url}">${url}</a>`

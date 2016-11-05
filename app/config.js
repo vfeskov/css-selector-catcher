@@ -6,5 +6,6 @@ module.exports = {
   emailToNotify: process.env.EMAIL_TO_NOTIFY,
   interval: process.env.INTERVAL,
   mode: process.env.MODE,
+  senderEmail: process.env.SENDER_EMAIL,
   url: process.env.URL
 }
